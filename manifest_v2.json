@@ -4,6 +4,11 @@
 
   "name": "Multi-tab",
   "description": "A browser extension to open and group a bunch of tabs from a list of URLs.",
+  "homepage_url": "https://github.com/LukeCarrier/multi-tab",
+  "developer": {
+    "name": "Luke Carrier",
+    "url": "https://luke.carrier.im"
+  },
   "version": "0.1.0",
 
   "browser_action": {
