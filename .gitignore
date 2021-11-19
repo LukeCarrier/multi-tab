@@ -4,5 +4,5 @@
 # PNG exports of SVG images
 /icons/*.png
 
-# web-ext
-/web-ext-artifacts/
+# Staging and output directories
+/build/

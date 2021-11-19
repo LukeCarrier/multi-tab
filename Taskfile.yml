@@ -3,13 +3,10 @@ version: '3'
 tasks:
   default:
     deps:
-      - build
+      - extension:v2:build
+      - extension:v3:build
 
-  build:
-    deps:
-      - build:extension
-
-  build:icons:
+  icons:export:
     cmds:
       - npx svgexport icons/logo.svg icons/logo-48.png 48:48
       - npx svgexport icons/logo.svg icons/logo-96.png 96:96
@@ -17,23 +14,55 @@ tasks:
       - icons/*.svg
     generates:
       - icons/*.png
-  build:extension:
+
+  extension:stage:
     deps:
-      - build:icons
+      - icons:export
     cmds:
-      - npx web-ext build --overwrite-dest
+      - rm -rf build/{{ .manifest_version }}
+      - mkdir -p build/{{ .manifest_version }}/icons
+      - cp manifest_{{ .manifest_version }}.json build/{{ .manifest_version }}/manifest.json
+      - cp icons/*.png build/{{ .manifest_version }}/icons
+      - cp -r popup build/{{ .manifest_version }}/popup
     sources:
-      - manifest.json
+      - manifest_{{ .manifest_version }}.json
+      - icons/*.png
       - popup/*
     generates:
-      - web-ext-artifacts/multi-tab-*.zip
+      - build/{{ .manifest_version }}
+
+  extension:v2:build:
+    cmds:
+      - task: extension:stage
+        vars:
+          manifest_version: v2
+      - cd build/v2 && npx web-ext build --overwrite-dest
+    sources:
+      - manifest_v2.json
+      - icons/*.png
+      - popup/*
+    generates:
+      - build/v2/web-ext-artifacts/multi-tab-*.zip
+  extension:v3:build:
+    cmds:
+      - task: extension:stage
+        vars:
+          manifest_version: v3
+      - cd build/v3 && npx web-ext build --overwrite-dest
+    sources:
+      - manifest_v3.json
+      - icons/*.png
+      - popup/*
+    generates:
+      - build/v3/web-ext-artifacts/multi-tab-*.zip
 
   run:chrome:
-    deps: &run_deps
-      - build:icons
+    deps:
+      - extension:v3:build
     cmds:
       - node task/run-chrome.js
   run:firefox:
-    deps: *run_deps
+    deps:
+      - extension:v2:build
     cmds:
       - npx web-ext run --firefox=firefox --browser-console
