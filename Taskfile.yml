@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - build
+
+  build:
+    cmds:
+      - npx web-ext build --overwrite-dest
+    sources:
+      - manifest.json
+      - popup/*
+    generates:
+      - web-ext-artifacts/multi-tab-*.zip
+
+  run:chrome:
+    cmds:
+      - node task/run-chrome.js
+  run:firefox:
+    cmds:
+      - npx web-ext run --firefox=firefox --browser-console
