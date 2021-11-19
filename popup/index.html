@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
-    <title>Multi-tab test</title>
+    <title>Multi-tab</title>
   </head>
   <body>
     <form id="url-opener">
       <textarea name="url-list" id="url-list" required></textarea>
-      <select name="tab-group" id="tab-group"></select>
+      <div id="tab-group-wrapper">
+        <label for="tab-group">Tab group</label>
+        <select name="tab-group" id="tab-group"></select>
+      </div>
       <input id="submit" type="submit" value="Open tabs">
     </form>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

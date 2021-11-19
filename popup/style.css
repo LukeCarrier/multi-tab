@@ -1,13 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   min-width: 300px;
   min-height: 300px;
 }
 
-#url-list {
-  box-sizing: border-box;
-  height: 100px;
+#url-opener > * {
+  margin-bottom: 10px;
 }
 
-#url-list, #submit {
+#url-list {
+  height: 220px;
+}
+
+#tab-group-wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+#tab-group-wrapper > * {
+  height: 100%;
+}
+
+#url-list, #tab-group-wrapper, #submit {
   width: 100%;
 }
