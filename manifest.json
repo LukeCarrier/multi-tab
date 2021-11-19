@@ -1,12 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/webextension.json",
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Multi-tab",
   "description": "A browser extension to open and group a bunch of tabs from a list of URLs.",
   "version": "0.1.0",
 
-  "browser_action": {
+  "permissions": [
+    "tabGroups"
+  ],
+
+  "action": {
     "browser_style": true,
     "default_title": "Multi-tab",
     "default_popup": "popup/index.html"
