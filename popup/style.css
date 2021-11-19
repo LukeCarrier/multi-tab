@@ -1,0 +1,13 @@
+body {
+  min-width: 300px;
+  min-height: 300px;
+}
+
+#url-list {
+  box-sizing: border-box;
+  height: 100px;
+}
+
+#url-list, #submit {
+  width: 100%;
+}
