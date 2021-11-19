@@ -6,6 +6,20 @@ tasks:
       - build
 
   build:
+    deps:
+      - build:extension
+
+  build:icons:
+    cmds:
+      - npx svgexport icons/logo.svg icons/logo-48.png 48:48
+      - npx svgexport icons/logo.svg icons/logo-96.png 96:96
+    sources:
+      - icons/*.svg
+    generates:
+      - icons/*.png
+  build:extension:
+    deps:
+      - build:icons
     cmds:
       - npx web-ext build --overwrite-dest
     sources:
@@ -15,8 +29,11 @@ tasks:
       - web-ext-artifacts/multi-tab-*.zip
 
   run:chrome:
+    deps: &run_deps
+      - build:icons
     cmds:
       - node task/run-chrome.js
   run:firefox:
+    deps: *run_deps
     cmds:
       - npx web-ext run --firefox=firefox --browser-console

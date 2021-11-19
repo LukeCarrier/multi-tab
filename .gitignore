@@ -1,5 +1,8 @@
 # Task
 /.task/
 
+# PNG exports of SVG images
+/icons/*.png
+
 # web-ext
 /web-ext-artifacts/

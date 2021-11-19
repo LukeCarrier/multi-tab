@@ -10,5 +10,10 @@
     "browser_style": true,
     "default_title": "Multi-tab",
     "default_popup": "popup/index.html"
+  },
+
+  "icons": {
+    "48": "icons/logo-48.png",
+    "96": "icons/logo-96.png"
   }
 }
