@@ -57,12 +57,8 @@ tasks:
       - build/v3/web-ext-artifacts/multi-tab-*.zip
 
   run:chrome:
-    deps:
-      - extension:v3:build
     cmds:
-      - node task/run-chrome.js
+      - cd build/v3 && node ../../task/run-chrome.js
   run:firefox:
-    deps:
-      - extension:v2:build
     cmds:
-      - npx web-ext run --firefox=firefox --browser-console
+      - cd build/v2 && npx web-ext run --firefox=firefox --browser-console
