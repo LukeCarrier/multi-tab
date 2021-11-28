@@ -54,6 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const enableButton = disableButton(openTabsSubmitButton, "Opening tabs...");
 
     const urls = openTabsUrlList.value.split(URL_SEPARATOR);
+    const failures = [];
     const tabIds = [];
     const groupId = parseInt(openTabsTabGroup.value, 10);
 
@@ -68,12 +69,18 @@ window.addEventListener("DOMContentLoaded", () => {
         active: false,
         url,
       }, tab => {
-        tabIds.push(tab.id);
-        if (tabIds.length === urls.length) {
+        if (tab) {
+          tabIds.push(tab.id);
+        } else {
+          failures.push({ url, error: chrome.runtime.lastError });
+        }
+        if (tabIds.length + failures.length === urls.length) {
           if (chrome.tabGroups && groupId !== chrome.tabGroups.TAB_GROUP_ID_NONE) {
-            chrome.tabs.group({ groupId, tabIds })
+            chrome.tabs.group({ groupId, tabIds });
           }
-          enableButton("Opened!");
+          const doneHtml = tabIds.length === urls.length ?
+            "Opened!" : `Opened (${failures.length} failures)!`;
+          enableButton(doneHtml);
         }
       });
     });
