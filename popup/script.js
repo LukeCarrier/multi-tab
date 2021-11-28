@@ -7,16 +7,21 @@ window.addEventListener("DOMContentLoaded", () => {
   const openTabsUrlList = openTabsForm.querySelector("[name='url-list']");
   const openTabsTabGroup = openTabsForm.querySelector("[name='tab-group']");
 
+  const copyUrlsForm = document.querySelector("#copy-urls");
+  const copyUrlsTabGroup = copyUrlsForm.querySelector("[name='tab-group']");
+
+  const tabGroupSelects = [openTabsTabGroup, copyUrlsTabGroup];
+
   if (chrome.tabGroups) {
     chrome.tabGroups.query({ windowId: chrome.windows.WINDOW_ID_CURRENT }, tabGroups => {
       let tabGroupOptions = `<option value="-1">None</option>`;
       tabGroups.forEach(tabGroup => {
         tabGroupOptions += `<option value="${tabGroup.id}">(${tabGroup.color}) ${tabGroup.title}</option>`;
       });
-      openTabsTabGroup.innerHTML = tabGroupOptions;
+      tabGroupSelects.forEach(select => select.innerHTML = tabGroupOptions);
     });
   } else {
-    openTabsTabGroup.remove();
+    tabGroupSelects.forEach(select => select.remove());
   }
 
   openTabsUrlList.addEventListener("keydown", e => {
@@ -52,6 +57,16 @@ window.addEventListener("DOMContentLoaded", () => {
         active: false,
         url,
       }, maybeCreateTabGroup);
+    });
+  });
+
+  copyUrlsForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const groupId = parseInt(copyUrlsTabGroup.value, 10);
+    chrome.tabs.query({ groupId }, tabs => {
+      const urls = tabs.map(tab => tab.url).join(URL_SEPARATOR);
+      navigator.clipboard.writeText(urls);
     });
   });
 });
