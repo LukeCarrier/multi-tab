@@ -37,8 +37,9 @@ tasks:
       - mkdir -p build/{{ .manifest_version }}/icons
       - cp manifest_{{ .manifest_version }}.json build/{{ .manifest_version }}/manifest.json
       - cp icons/*.png build/{{ .manifest_version }}/icons
-      - cp -r popup build/{{ .manifest_version }}/popup
+      - cp -r _locales popup build/{{ .manifest_version }}
     sources:
+      - _locales/*
       - manifest_{{ .manifest_version }}.json
       - icons/*.png
       - popup/*
