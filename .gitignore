@@ -6,3 +6,6 @@
 
 # Staging and output directories
 /build/
+
+# Xcode
+xcuserdata/
