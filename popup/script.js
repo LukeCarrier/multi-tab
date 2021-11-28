@@ -30,6 +30,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const urls = openTabsUrlList.value.split(URL_SEPARATOR);
     const tabIds = [];
+    const groupId = parseInt(openTabsTabGroup.value, 10);
+
+    const maybeCreateTabGroup = groupId === chrome.tabGroups.TAB_GROUP_ID_NONE ?
+      null : tab => {
+        tabIds.push(tab.id);
+
+        if (tabIds.length === urls.length) {
+          chrome.tabs.group({ groupId, tabIds });
+        }
+      };
 
     urls.forEach(url => {
       url = url.trimLeft().trimRight();
@@ -41,16 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // Don't steal the user's focus.
         active: false,
         url,
-      }, tab => {
-        tabIds.push(tab.id);
-
-        if (tabIds.length === urls.length) {
-          chrome.tabs.group({
-            groupId: groupId === -1 ? null : groupId,
-            tabIds,
-          });
-        }
-      });
+      }, maybeCreateTabGroup);
     });
   });
 });
