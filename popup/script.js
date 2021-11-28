@@ -28,6 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const copyUrlsTabGroup = copyUrlsForm.querySelector("[name='tab-group']");
   const copyUrlsSubmitButton = copyUrlsForm.querySelector("[name='submit']");
 
+  const tabGroupWrappers = document.querySelectorAll(".tab-group-wrapper");
   const tabGroupSelects = [openTabsTabGroup, copyUrlsTabGroup];
 
   if (chrome.tabGroups) {
@@ -39,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
       tabGroupSelects.forEach(select => select.innerHTML = tabGroupOptions);
     });
   } else {
-    tabGroupSelects.forEach(select => select.remove());
+    tabGroupWrappers.forEach(wrapper => wrapper.remove());
   }
 
   openTabsUrlList.addEventListener("keydown", e => {
