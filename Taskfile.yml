@@ -2,9 +2,9 @@ version: '3'
 
 tasks:
   default:
+   extension:build:
     deps:
-      - extension:v2:build
-      - extension:v3:build
+      - extension:build
 
   icons:export:
     cmds:
@@ -14,6 +14,12 @@ tasks:
       - icons/*.svg
     generates:
       - icons/*.png
+
+  extension:build:
+    desc: Build WebExtension (both v2 and v3 manifests)
+    deps:
+      - extension:v2:build
+      - extension:v3:build
 
   extension:stage:
     deps:
@@ -57,8 +63,10 @@ tasks:
       - build/v3/web-ext-artifacts/multi-tab-*.zip
 
   run:chrome:
+    desc: Launch Chrome with the extension loaded
     cmds:
       - cd build/v3 && node ../../task/run-chrome.js
   run:firefox:
+    desc: Launch Firefox with the extension loaded
     cmds:
       - cd build/v2 && npx web-ext run --firefox=firefox --browser-console
