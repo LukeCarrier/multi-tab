@@ -16,6 +16,8 @@
     "tabGroups"
   ],
 
+  "default_locale": "en",
+
   "action": {
     "browser_style": true,
     "default_title": "Multi-tab",
