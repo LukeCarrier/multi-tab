@@ -29,22 +29,14 @@
 		836A65992753E41500FB1283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836A654F2753E41500FB1283 /* Assets.xcassets */; };
 		836A659A2753E41500FB1283 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A65512753E41500FB1283 /* SafariWebExtensionHandler.swift */; };
 		836A659B2753E41500FB1283 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A65512753E41500FB1283 /* SafariWebExtensionHandler.swift */; };
-		836A659C2753E41500FB1283 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 836A65532753E41500FB1283 /* _locales */; };
-		836A659D2753E41500FB1283 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 836A65532753E41500FB1283 /* _locales */; };
-		836A659E2753E41500FB1283 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 836A65542753E41500FB1283 /* images */; };
-		836A659F2753E41500FB1283 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 836A65542753E41500FB1283 /* images */; };
-		836A65A02753E41500FB1283 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 836A65552753E41500FB1283 /* manifest.json */; };
-		836A65A12753E41500FB1283 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 836A65552753E41500FB1283 /* manifest.json */; };
-		836A65A22753E41500FB1283 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A65562753E41500FB1283 /* background.js */; };
-		836A65A32753E41500FB1283 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A65562753E41500FB1283 /* background.js */; };
-		836A65A42753E41500FB1283 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A65572753E41500FB1283 /* content.js */; };
-		836A65A52753E41500FB1283 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A65572753E41500FB1283 /* content.js */; };
-		836A65A62753E41500FB1283 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 836A65582753E41500FB1283 /* popup.html */; };
-		836A65A72753E41500FB1283 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 836A65582753E41500FB1283 /* popup.html */; };
-		836A65A82753E41500FB1283 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 836A65592753E41500FB1283 /* popup.css */; };
-		836A65A92753E41500FB1283 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 836A65592753E41500FB1283 /* popup.css */; };
-		836A65AA2753E41500FB1283 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A655A2753E41500FB1283 /* popup.js */; };
-		836A65AB2753E41500FB1283 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 836A655A2753E41500FB1283 /* popup.js */; };
+		836A65BD2753EF0700FB1283 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 836A65BC2753EF0700FB1283 /* manifest.json */; };
+		836A65BE2753EF0700FB1283 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 836A65BC2753EF0700FB1283 /* manifest.json */; };
+		836A65C22753F04100FB1283 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C12753F04100FB1283 /* _locales */; };
+		836A65C32753F04100FB1283 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C12753F04100FB1283 /* _locales */; };
+		836A65C52753F0F800FB1283 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C42753F0F800FB1283 /* icons */; };
+		836A65C62753F0F800FB1283 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C42753F0F800FB1283 /* icons */; };
+		836A65C82753F12200FB1283 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C72753F12200FB1283 /* popup */; };
+		836A65C92753F12200FB1283 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 836A65C72753F12200FB1283 /* popup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,14 +89,6 @@
 		836A654E2753E41400FB1283 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		836A654F2753E41500FB1283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		836A65512753E41500FB1283 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		836A65532753E41500FB1283 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
-		836A65542753E41500FB1283 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		836A65552753E41500FB1283 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		836A65562753E41500FB1283 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
-		836A65572753E41500FB1283 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
-		836A65582753E41500FB1283 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
-		836A65592753E41500FB1283 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		836A655A2753E41500FB1283 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		836A655F2753E41500FB1283 /* Multi-tab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi-tab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		836A65622753E41500FB1283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836A65642753E41500FB1283 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +104,10 @@
 		836A65872753E41500FB1283 /* Multi-tab Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Multi-tab Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		836A658C2753E41500FB1283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		836A658D2753E41500FB1283 /* Multi-tab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Multi-tab.entitlements"; sourceTree = "<group>"; };
+		836A65BC2753EF0700FB1283 /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = manifest.json; path = ../../../build/v2/manifest.json; sourceTree = "<group>"; };
+		836A65C12753F04100FB1283 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = ../../../build/v2/_locales; sourceTree = "<group>"; };
+		836A65C42753F0F800FB1283 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../build/v2/icons; sourceTree = "<group>"; };
+		836A65C72753F12200FB1283 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../build/v2/popup; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,14 +188,10 @@
 		836A65522753E41500FB1283 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				836A65532753E41500FB1283 /* _locales */,
-				836A65542753E41500FB1283 /* images */,
-				836A65552753E41500FB1283 /* manifest.json */,
-				836A65562753E41500FB1283 /* background.js */,
-				836A65572753E41500FB1283 /* content.js */,
-				836A65582753E41500FB1283 /* popup.html */,
-				836A65592753E41500FB1283 /* popup.css */,
-				836A655A2753E41500FB1283 /* popup.js */,
+				836A65C72753F12200FB1283 /* popup */,
+				836A65C12753F04100FB1283 /* _locales */,
+				836A65C42753F0F800FB1283 /* icons */,
+				836A65BC2753EF0700FB1283 /* manifest.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -414,14 +398,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836A65A22753E41500FB1283 /* background.js in Resources */,
-				836A65A82753E41500FB1283 /* popup.css in Resources */,
-				836A65A62753E41500FB1283 /* popup.html in Resources */,
-				836A659E2753E41500FB1283 /* images in Resources */,
-				836A65A02753E41500FB1283 /* manifest.json in Resources */,
-				836A659C2753E41500FB1283 /* _locales in Resources */,
-				836A65A42753E41500FB1283 /* content.js in Resources */,
-				836A65AA2753E41500FB1283 /* popup.js in Resources */,
+				836A65C52753F0F800FB1283 /* icons in Resources */,
+				836A65C82753F12200FB1283 /* popup in Resources */,
+				836A65C22753F04100FB1283 /* _locales in Resources */,
+				836A65BD2753EF0700FB1283 /* manifest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,14 +409,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836A65A32753E41500FB1283 /* background.js in Resources */,
-				836A65A92753E41500FB1283 /* popup.css in Resources */,
-				836A65A72753E41500FB1283 /* popup.html in Resources */,
-				836A659F2753E41500FB1283 /* images in Resources */,
-				836A65A12753E41500FB1283 /* manifest.json in Resources */,
-				836A659D2753E41500FB1283 /* _locales in Resources */,
-				836A65A52753E41500FB1283 /* content.js in Resources */,
-				836A65AB2753E41500FB1283 /* popup.js in Resources */,
+				836A65C62753F0F800FB1283 /* icons in Resources */,
+				836A65C92753F12200FB1283 /* popup in Resources */,
+				836A65C32753F04100FB1283 /* _locales in Resources */,
+				836A65BE2753EF0700FB1283 /* manifest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
