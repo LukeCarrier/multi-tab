@@ -7,23 +7,23 @@ body {
   min-height: 300px;
 }
 
-#url-opener > * {
+.form > * {
   margin-bottom: 10px;
 }
 
-#url-list {
+.item-list {
   height: 220px;
 }
 
-#tab-group-wrapper {
+.tab-group-wrapper {
   display: grid;
   grid-template-columns: 20% 80%;
 }
 
-#tab-group-wrapper > * {
+.tab-group-wrapper > * {
   height: 100%;
 }
 
-#url-list, #tab-group-wrapper, #submit {
+.item-list, .tab-group-wrapper, .submit {
   width: 100%;
 }
