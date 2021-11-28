@@ -9,13 +9,14 @@
     <title>Multi-tab</title>
   </head>
   <body>
-    <form id="url-opener">
-      <textarea name="url-list" id="url-list" required></textarea>
-      <div id="tab-group-wrapper">
+    <h1>Open tabs</h1>
+    <form id="open-tabs">
+      <textarea name="url-list" required></textarea>
+      <div class="tab-group-wrapper">
         <label for="tab-group">Tab group</label>
-        <select name="tab-group" id="tab-group"></select>
+        <select name="tab-group" class="tab-group"></select>
       </div>
-      <input id="submit" type="submit" value="Open tabs">
+      <button name="submit" type="submit">Open tabs</button>
     </form>
 
     <script src="script.js"></script>

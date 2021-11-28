@@ -3,35 +3,33 @@ const KEYCODE_ENTER = 13;
 const URL_SEPARATOR = "\n";
 
 window.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#url-opener");
-  const urlList = form.querySelector("#url-list");
-  const tabGroupSelect = form.querySelector("#tab-group");
+  const openTabsForm = document.querySelector("#open-tabs");
+  const openTabsUrlList = openTabsForm.querySelector("[name='url-list']");
+  const openTabsTabGroup = openTabsForm.querySelector("[name='tab-group']");
 
   if (chrome.tabGroups) {
     chrome.tabGroups.query({ windowId: chrome.windows.WINDOW_ID_CURRENT }, tabGroups => {
       let tabGroupOptions = `<option value="-1">None</option>`;
       tabGroups.forEach(tabGroup => {
         tabGroupOptions += `<option value="${tabGroup.id}">(${tabGroup.color}) ${tabGroup.title}</option>`;
-      })
-      tabGroupSelect.innerHTML = tabGroupOptions;
+      });
+      openTabsTabGroup.innerHTML = tabGroupOptions;
     });
   } else {
-    tabGroupSelect.remove();
+    openTabsTabGroup.remove();
   }
 
-  urlList.addEventListener("keydown", e => {
+  openTabsUrlList.addEventListener("keydown", e => {
     if (e.keyCode === KEYCODE_ENTER && e.metaKey) {
-      form.requestSubmit();
+      openTabsForm.requestSubmit();
     }
   });
 
-  form.addEventListener("submit", e => {
+  openTabsForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const urls = urlList.value.split(URL_SEPARATOR);
+    const urls = openTabsUrlList.value.split(URL_SEPARATOR);
     const tabIds = [];
-    const groupId = tabGroupSelect.value === chrome.tabGroups.TAB_GROUP_ID_NONE.toString() ?
-      null : parseInt(tabGroupSelect.value, 10);
 
     urls.forEach(url => {
       url = url.trimLeft().trimRight();
