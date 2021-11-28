@@ -4,7 +4,7 @@
 
 body {
   min-width: 300px;
-  min-height: 300px;
+  min-height: 350px;
 }
 
 .form > * {
@@ -12,7 +12,7 @@ body {
 }
 
 .item-list {
-  height: 220px;
+  height: 100px;
 }
 
 .tab-group-wrapper {
