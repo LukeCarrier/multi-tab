@@ -70,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }, tab => {
         tabIds.push(tab.id);
         if (tabIds.length === urls.length) {
-          if (groupId !== chrome.tabGroups.TAB_GROUP_ID_NONE) {
+          if (chrome.tabGroups && groupId !== chrome.tabGroups.TAB_GROUP_ID_NONE) {
             chrome.tabs.group({ groupId, tabIds })
           }
           enableButton("Opened!");
@@ -83,8 +83,11 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const enableButton = disableButton(copyUrlsSubmitButton, "Copying URLs...");
 
-    const groupId = parseInt(copyUrlsTabGroup.value, 10);
-    chrome.tabs.query({ groupId }, tabs => {
+    const query = {};
+    if (chrome.tabGroups) {
+      query.groupId = parseInt(copyUrlsTabGroup.value, 10);
+    }
+    chrome.tabs.query(query, tabs => {
       const urls = tabs.map(tab => tab.url).join(URL_SEPARATOR);
       navigator.clipboard.writeText(urls);
       enableButton("Copied!")
