@@ -1,5 +1,18 @@
 version: '3'
 
+vars:
+  LOGO_SIZES: |
+    16
+    19
+    32
+    38
+    48
+    64
+    96
+    128
+    256
+    512
+
 tasks:
   default:
    extension:build:
@@ -8,16 +21,12 @@ tasks:
 
   icons:export:
     cmds:
-      - npx svgexport icons/logo.svg icons/logo-16.png 16:16
-      - npx svgexport icons/logo.svg icons/logo-19.png 19:19
-      - npx svgexport icons/logo.svg icons/logo-32.png 32:32
-      - npx svgexport icons/logo.svg icons/logo-38.png 38:38
-      - npx svgexport icons/logo.svg icons/logo-48.png 48:48
-      - npx svgexport icons/logo.svg icons/logo-64.png 64:64
-      - npx svgexport icons/logo.svg icons/logo-96.png 96:96
-      - npx svgexport icons/logo.svg icons/logo-128.png 128:128
-      - npx svgexport icons/logo.svg icons/logo-256.png 256:256
-      - npx svgexport icons/logo.svg icons/logo-512.png 512:512
+      - |
+        {{ range $i, $logo_size := .LOGO_SIZES | splitLines -}}
+          {{- if $logo_size -}}
+            npx svgexport icons/logo.svg icons/logo-{{ . }}.png {{ . }}:{{ . }}
+          {{- end }}
+        {{ end -}}
     sources:
       - icons/*.svg
     generates:
