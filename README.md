@@ -28,6 +28,21 @@ Leave this running in a tab, and run the following to launch browser instances w
 ```console
 task run:chrome
 task run:firefox
+task run:safari
 ```
 
 As you make changes to the extension, just reload the tab to see your changes.
+
+### Hacking on Safari
+
+iOS and macOS Safari builds require Xcode, as we must wrap the extension in an iOS and macOS app for distribution. After installing Xcode via the App Store, switch to its developer directory for `xcodebuild`:
+
+```console
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
+
+You should then be able to build the extension and apps:
+
+```console
+task extension:safari:build
+```

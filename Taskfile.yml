@@ -55,6 +55,8 @@ tasks:
     generates:
       - build/{{ .manifest_version }}
 
+  # Build for platforms which support WebExtensions packaged as WebExtensions.
+  # For now, that's everyone except Safari.
   extension:v2:build:
     cmds:
       - task: extension:stage
@@ -79,6 +81,14 @@ tasks:
       - popup/*
     generates:
       - build/v3/web-ext-artifacts/multi-tab-*.zip
+
+  # Safari requires wrapping the extension resources in a SafariWebExtension
+  extension:safari:build:
+    cmds:
+      - task: extension:stage
+        vars:
+          manifest_version: v2
+      - cd safari && xcodebuild -alltargets
 
   run:chrome:
     desc: Launch Chrome with the extension loaded
