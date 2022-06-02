@@ -6,6 +6,7 @@
 
 # Staging and output directories
 /build/
+/safari/build/
 
 # Xcode
 xcuserdata/
