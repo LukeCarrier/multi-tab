@@ -1,10 +1,3 @@
-//
-//  SafariWebExtensionHandler.swift
-//  Shared (Extension)
-//
-//  Created by Luke Carrier on 28/11/2021.
-//
-
 import SafariServices
 import os.log
 

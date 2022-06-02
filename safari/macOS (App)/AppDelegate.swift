@@ -1,21 +1,10 @@
-//
-//  AppDelegate.swift
-//  macOS (App)
-//
-//  Created by Luke Carrier on 28/11/2021.
-//
-
 import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        // Override point for customization after application launch.
-    }
+    func applicationDidFinishLaunching(_ notification: Notification) {}
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
-
 }
