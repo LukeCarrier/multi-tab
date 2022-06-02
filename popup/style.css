@@ -24,6 +24,17 @@ body {
   height: 100%;
 }
 
+.tab-group-name-wrapper {
+  display: none;
+  visibility: hidden;
+}
+
+/* -2 is TAB_GROUP_ID_NEW */
+#open-tabs .tab-group[data-value='-2'] + .tab-group-name-wrapper {
+  display: contents;
+  visibility: visible;
+}
+
 .item-list, .tab-group-wrapper, .submit {
   width: 100%;
 }

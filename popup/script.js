@@ -2,6 +2,8 @@ const KEYCODE_ENTER = 13;
 
 const URL_SEPARATOR = "\n";
 
+const TAB_GROUP_ID_NEW = -2;
+
 function disableButton(button, inProgressHtml) {
   const originalHtml = button.innerHTML;
 
@@ -22,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const openTabsForm = document.querySelector("#open-tabs");
   const openTabsUrlList = openTabsForm.querySelector("[name='url-list']");
   const openTabsTabGroup = openTabsForm.querySelector("[name='tab-group']");
+  const openTabsTabGroupName = openTabsForm.querySelector("[name='tab-group-name']");
   const openTabsSubmitButton = openTabsForm.querySelector("[name='submit']");
 
   const copyUrlsForm = document.querySelector("#copy-urls");
@@ -29,15 +32,17 @@ window.addEventListener("DOMContentLoaded", () => {
   const copyUrlsSubmitButton = copyUrlsForm.querySelector("[name='submit']");
 
   const tabGroupWrappers = document.querySelectorAll(".tab-group-wrapper");
-  const tabGroupSelects = [openTabsTabGroup, copyUrlsTabGroup];
 
   if (chrome.tabGroups) {
+    openTabsTabGroup.addEventListener("change", e => e.target.dataset.value = e.target.value);
+
     chrome.tabGroups.query({ windowId: chrome.windows.WINDOW_ID_CURRENT }, tabGroups => {
       let tabGroupOptions = `<option value="-1">None</option>`;
       tabGroups.forEach(tabGroup => {
         tabGroupOptions += `<option value="${tabGroup.id}">(${tabGroup.color}) ${tabGroup.title}</option>`;
       });
-      tabGroupSelects.forEach(select => select.innerHTML = tabGroupOptions);
+      openTabsTabGroup.innerHTML = tabGroupOptions + `<option value="${TAB_GROUP_ID_NEW}">New</option>`;
+      copyUrlsTabGroup.innerHTML = tabGroupOptions;
     });
   } else {
     tabGroupWrappers.forEach(wrapper => wrapper.remove());
@@ -57,6 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const failures = [];
     const tabIds = [];
     const groupId = parseInt(openTabsTabGroup.value, 10);
+    const groupTitle = openTabsTabGroupName.value;
 
     urls.forEach(url => {
       url = url.trimLeft().trimRight();
@@ -76,7 +82,20 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         if (tabIds.length + failures.length === urls.length) {
           if (chrome.tabGroups && groupId !== chrome.tabGroups.TAB_GROUP_ID_NONE) {
-            chrome.tabs.group({ groupId, tabIds });
+            const groupParams = { tabIds };
+            let groupCb = null;
+
+            if (groupId === TAB_GROUP_ID_NEW) {
+              groupCb = groupId => {
+                chrome.tabGroups.update(groupId, {
+                  title: groupTitle,
+                });
+              };
+            } else {
+              groupParams.groupId = groupId;
+            }
+
+            chrome.tabs.group(groupParams, groupCb);
           }
           const doneHtml = tabIds.length === urls.length ?
             "Opened!" : `Opened (${failures.length} failures)!`;
