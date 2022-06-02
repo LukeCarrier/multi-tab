@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Shared (App)
-//
-//  Created by Luke Carrier on 28/11/2021.
-//
-
 import WebKit
 
 #if os(iOS)
@@ -73,5 +66,4 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         }
 #endif
     }
-
 }
