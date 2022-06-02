@@ -43,7 +43,6 @@ Leave this running in a tab, and run the following to launch browser instances w
 ```console
 task run:chrome
 task run:firefox
-task run:safari
 ```
 
 As you make changes to the extension, just reload the tab to see your changes.
