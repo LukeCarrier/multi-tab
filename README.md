@@ -4,6 +4,21 @@ A browser extension to open and group a bunch of tabs from a list of URLs.
 
 ---
 
+## Installation
+
+- [Chrome](https://chrome.google.com/webstore/detail/multi-tab/aecmnemhogbiohkomdlbgklhlamaihhi)
+- [Firefox](https://addons.mozilla.org/firefox/addon/lukecarrier-multi-tab/)
+
+### Installation on Safari
+
+1. Install the app to `/Applications`.
+2. Open _Safari_, then click _Safari_ -> _Preferences_.
+3. From the _Advanced_ tab, check _Show Develop menu in menu bar_.
+4. Ensure _Develop_ -> _Allow Unsigned Extensions_ is checked.
+5. From the _Extensions_ tab, enable _Multi-tab_.
+
+Until we figure out code signing, you'll need to repeat (4) each time Safari is relaunched.
+
 ## Permissions
 
 | Permission | Description | Justification |
