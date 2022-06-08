@@ -19,7 +19,17 @@ A browser extension to open and group a bunch of tabs from a list of URLs.
 
 Until we figure out code signing, you'll need to repeat (4) each time Safari is relaunched.
 
-## Permissions
+## Privacy policy
+
+This really ought not to be necessary, but to be exceptionally clear:
+
+> This browser extension doesn't collect any data: personal, telemetry, or otherwise.
+
+I take your privacy very seriously. No third-party analytics or advertising services are used. The extension logs no information on you and has no interest in doing such.
+
+Neither the extension nore the developer collects, transmits, distributes, or sells your data.
+
+### Permissions
 
 | Permission | Description | Justification |
 | --- | --- | --- |
