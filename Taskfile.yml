@@ -13,6 +13,12 @@ vars:
     256
     512
 
+  STORE_ICON_SIZES: |
+    32
+    64
+    128
+    300
+
 tasks:
   default:
    extension:build:
@@ -22,15 +28,23 @@ tasks:
   icons:export:
     cmds:
       - |
-        {{ range $i, $logo_size := .LOGO_SIZES | splitLines -}}
-          {{- if $logo_size -}}
+        {{ range $i, $icon_size := .LOGO_SIZES | splitLines -}}
+          {{- if $icon_size -}}
             npx svgexport icons/logo.svg icons/logo-{{ . }}.png {{ . }}:{{ . }}
+          {{- end }}
+        {{ end -}}
+      - |
+        {{ range $i, $icon_size := .STORE_ICON_SIZES | splitLines -}}
+          {{- if $icon_size -}}
+            npx svgexport stores/store-icon.svg stores/store-icon-{{ . }}.png {{ . }}:{{ . }}
           {{- end }}
         {{ end -}}
     sources:
       - icons/*.svg
+      - stores/*.svg
     generates:
       - icons/*.png
+      - stores/*.png
 
   extension:build:
     desc: Build WebExtension (both v2 and v3 manifests)
