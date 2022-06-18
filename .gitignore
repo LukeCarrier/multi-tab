@@ -3,6 +3,7 @@
 
 # PNG exports of SVG images
 /icons/*.png
+/stores/*.png
 
 # Staging and output directories
 /build/
