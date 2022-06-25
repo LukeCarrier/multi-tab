@@ -8,6 +8,7 @@ A browser extension to open and group a bunch of tabs from a list of URLs.
 
 - [Chrome Web Store](https://chrome.google.com/webstore/detail/multi-tab/aecmnemhogbiohkomdlbgklhlamaihhi) for Brave, Chrome, and Vivaldi
 - [Mozilla Addons](https://addons.mozilla.org/firefox/addon/lukecarrier-multi-tab/) for Firefox
+- [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/multitab/mnaahaibjhogpcngmpcdneiaccnmccdh) for Edge
 
 ### Installation on Safari
 
