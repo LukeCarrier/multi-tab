@@ -46,6 +46,11 @@ tasks:
       - icons/*.png
       - stores/*.png
 
+  deps:install:
+    desc: Install build dependencies
+    cmds:
+      - npm install
+
   extension:build:
     desc: Build WebExtension (both v2 and v3 manifests)
     deps:
@@ -72,6 +77,8 @@ tasks:
   # Build for platforms which support WebExtensions packaged as WebExtensions.
   # For now, that's everyone except Safari.
   extension:v2:build:
+    deps:
+      - deps:install
     cmds:
       - task: extension:stage
         vars:
@@ -84,6 +91,8 @@ tasks:
     generates:
       - build/v2/web-ext-artifacts/multi-tab-*.zip
   extension:v3:build:
+    deps:
+      - deps:install
     cmds:
       - task: extension:stage
         vars:

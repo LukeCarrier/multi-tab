@@ -1,6 +1,9 @@
 # Task
 /.task/
 
+# npm
+/node_modules/
+
 # PNG exports of SVG images
 /icons/*.png
 /stores/*.png
