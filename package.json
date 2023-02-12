@@ -19,6 +19,6 @@
   "homepage": "https://github.com/LukeCarrier/multi-tab#readme",
   "devDependencies": {
     "svgexport": "^0.4.2",
-    "web-ext": "^7.1.0"
+    "web-ext": "^7.5.0"
   }
 }
